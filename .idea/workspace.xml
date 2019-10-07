@@ -117,6 +117,7 @@
   <component name="ProjectId" id="1RskOK6hgvKJ9QtceIjsJZBnvHz" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -146,7 +147,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570463157923</updated>
-      <workItem from="1570463159420" duration="1527000" />
+      <workItem from="1570463159420" duration="2772000" />
     </task>
     <servers />
   </component>
