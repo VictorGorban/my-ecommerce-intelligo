@@ -1,16 +1,32 @@
 <?php
 
+use App\Eloquent\Model;
 use Illuminate\Database\Seeder;
+use \AddressesTableSeeder;
+use \AdminTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        Model::unguard();
+
+        $this->call('UsersTableSeeder');
+        //$this->call('AdminTableSeeder');
+//        $this->call('CategoriesTableSeeder');
+//        $this->call('AddressesTableSeeder');
+//        $this->call('ProductsTableSeeder');
+//        $this->call('ProductsDetailTableSeeder');
+//        $this->call('OrdersTableSeeder');
+//        // $this->call('ProductsRatesSeeder');
+//        // $this->call('LogsTableSeeder');
+//        // $this->call('CommentsTableSeeder');
+//        $this->call('CompanyTableSeeder');
+//        $this->call('CompanyFeaturesSeeder');
     }
 }
