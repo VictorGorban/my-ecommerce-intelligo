@@ -11,7 +11,7 @@ class ProductsTableSeeder extends Seeder
 
     public function run () {
        $faker = Faker::create();
-        $businesses = Business::get();
+//        $businesses = Business::get();
         $numCategories = DB::table('categories')->count();
         for ($i = 0; $i < 500; $i++) {
             $price = $faker->numberBetween(1, 99);

@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App;
 
 use App\Log;
 use App\Order;
@@ -105,15 +105,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->attributes['role'] == 'business';
     }
-   //Type user Manage
-   public function isTrusted()
-   {
-       return $this->attributes['type'] == 'trusted';
-   }
+    //Type user Manage
+    public function isTrusted()
+    {
+        return $this->attributes['type'] == 'trusted';
+    }
     //Cart Manage
     public function getCartCount()
     {
-        $basicCart = Order::ofType('cart')->where('user_id', $this->id)->first();
+        $basicCart = \app\Order::ofType('cart')->where('user_id', $this->id)->first();
         if (!($basicCart)) {
             return 0;
         } else {
@@ -136,8 +136,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function modifyPoints($points, $actionTypeId, $sourceId)
     {
         $data = ['action_type_id' => $actionTypeId, 'source_id' => $sourceId, 'details' => $points, 'user_id' => $this->id];
-        $log = Log::create($data);
-        $userPoints = new UserPoints();
+        $log = \app\Log::create($data);
+        $userPoints = new \app\UserPoints();
         $userPoints->user_id = $this->id;
         $userPoints->action_type_id = $actionTypeId;
         $userPoints->source_id = $sourceId;

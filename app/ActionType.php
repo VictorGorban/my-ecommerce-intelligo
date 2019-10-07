@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App;
 
 use App\Eloquent\Model;
 class ActionType extends Model

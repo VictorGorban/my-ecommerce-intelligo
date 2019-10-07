@@ -1,11 +1,11 @@
 <?php
 
-use App\User;
+use app\User;
 use App\Person;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
-class AdminTableSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     public function run()
     {
@@ -24,14 +24,14 @@ class AdminTableSeeder extends Seeder
                          'facebook' => 'b.tortuvshin',
                          'preferences' => '{"product_viewed":[],"product_purchased":[],"product_shared":[],"product_categories":[],"my_searches":[]}',
                      ]);
-
-//        Person::createSimple([
-//                           'user_id' => 1,
+//
+//        Person::create([
 //                           'first_name' => 'Admin',
 //                           'last_name' => 'root',
 //                           'birthday' => $faker->dateTimeBetween('-40 years', '-16 years'),
 //                           'sex' => 'male',
-////                           'home_phone' => $faker->phoneNumber,
+//                           'home_phone' => $faker->phoneNumber,
+//                           'user_id' => 1,
 ////                           'user'       => [
 ////                               'nickname'    => 'admin',
 ////                               'email'       => 'admin@admin.com',
@@ -44,7 +44,5 @@ class AdminTableSeeder extends Seeder
 ////                               'preferences' => '{"product_viewed":[],"product_purchased":[],"product_shared":[],"product_categories":[],"my_searches":[]}',
 ////                           ],
 //                       ]);
-
-
     }
 }

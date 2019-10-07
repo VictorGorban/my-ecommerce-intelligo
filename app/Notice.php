@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App;
 
 use App\Eloquent\Collection;
 use App\Eloquent\Model;

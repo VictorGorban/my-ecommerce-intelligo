@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App;
 
 use App\Eloquent\Model;
 use App\User;
@@ -21,13 +21,19 @@ class Person extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'first_name', 'last_name', 'birthday', 'sex'];
+    protected $fillable = [
+        'user_id',
+        'first_name',
+        'last_name',
+        'birthday',
+        'sex'];
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
     protected $hidden = ['user_id'];
+
     public static function create(array $attr = [])
     {
         if (!isset($attr['user_id']) && isset($attr['user'])) {
@@ -38,26 +44,38 @@ class Person extends Model
         }
         return parent::create($attr);
     }
+
+    public static function createSimple(array $attr = [])
+    {
+        return parent::create($attr);
+    }
+
+
     public function user()
     {
         return $this->belongsTo('App\User');
     }
+
     public function relationsToArray()
     {
         return array_merge($this->attributesToArray(), $this->user->attributesToArray());
     }
+
     public function getAgeAttribute()
     {
         return \Carbon\Carbon::parse($this->birthday)->age;
     }
+
     public function getFullNameAttribute()
     {
         return "$this->first_name $this->last_name";
     }
+
     public function getHasPhoneAttribute()
     {
         return !is_null($this->home_phone);
     }
+
     public function setUpdatedAtAttribute($value)
     {
         $this->belongsTo('App\User')->updated_at = $value;

@@ -26,7 +26,8 @@ class UsersTableSeeder extends Seeder
                     'role'        => 'person',
                     'password'    => \Hash::make('123456'),
                     'pic_url'     => '/img/pt-default/'.$faker->numberBetween(1, 20).'.jpg',
-                    'twitter'     => '@'.$faker->userName,
+                    'twitter'     => '@'.$faker//        $this->call('UsersTableSeeder');
+->userName,
                     'facebook'    => $faker->userName,
                     'preferences' => '{"product_viewed":[],"product_purchased":[],"product_shared":[],"product_categories":[],"my_searches":[]}',
                 ],

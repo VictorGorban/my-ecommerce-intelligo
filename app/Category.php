@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace App;
 
 use App\Collection\Categories;
 use App\Eloquent\Model;

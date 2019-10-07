@@ -1,9 +1,9 @@
 <?php
 
-use App\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
-use \AddressesTableSeeder;
-use \AdminTableSeeder;
+
+//namespace\AdminTableSeeder::class;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,17 +16,19 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call('UsersTableSeeder');
-        //$this->call('AdminTableSeeder');
-//        $this->call('CategoriesTableSeeder');
-//        $this->call('AddressesTableSeeder');
-//        $this->call('ProductsTableSeeder');
-//        $this->call('ProductsDetailTableSeeder');
-//        $this->call('OrdersTableSeeder');
-//        // $this->call('ProductsRatesSeeder');
-//        // $this->call('LogsTableSeeder');
-//        // $this->call('CommentsTableSeeder');
-//        $this->call('CompanyTableSeeder');
-//        $this->call('CompanyFeaturesSeeder');
+        $this->call(AdminTableSeeder::class);
+//        $this->call(UsersTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+//        $this->call(AddressesTableSeeder::class);
+//        $this->call(ProductsTableSeeder::class);
+//        $this->call(ProductsDetailTableSeeder::class);
+//        $this->call(OrdersTableSeeder::class);
+//        // $this->call(ProductsRatesSeeder::class);
+//         $this->call(LogsTableSeeder::class);
+//        // $this->call(CommentsTableSeeder::class);
+        $this->call(CompanyTableSeeder::class);
+        $this->call(CompanyFeaturesSeeder::class);
+
+        Model::reguard();
     }
 }
