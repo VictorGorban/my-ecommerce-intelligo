@@ -62,7 +62,7 @@ class Order extends Model
         unset($options['detail'], $options['details']);
         $order = parent::create($options);
         if (count($details)) {
-            $order->inDetail()->saveMany(OrderDetail::createModels($details));
+            $order->inDetail()->saveMany(OrderDetail::myCreateModels($details));
         }
         return $order;
     }

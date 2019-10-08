@@ -46,7 +46,7 @@ class Category extends Model
      *
      * @return Categories Collection
      */
-    public function newCollection(array $models = [])
+    public function myNewCollection(array $models = [])
     {
         return new Categories($models);
     }

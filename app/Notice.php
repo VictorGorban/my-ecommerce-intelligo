@@ -48,7 +48,7 @@ class Notice extends Model
             }
             $user = $attr['users'];
             unset($attr['users']);
-            return self::createMany([
+            return self::myCreateMany([
                 $attr + ['user_id' => $user[0], 'sender_id' => $user[1]],
                 $attr + ['user_id' => $user[1], 'sender_id' => $user[0]],
             ]);
@@ -58,7 +58,7 @@ class Notice extends Model
             foreach ($users as $user) {
                 $notices[] = $attr + ['user_id' => $user];
             }
-            return self::createMany($notices);
+            return self::myCreateMany($notices);
         } else {
             return ($attr['user_id'] == $attr['sender_id']) ? null : parent::create($attr);
         }
@@ -71,7 +71,7 @@ class Notice extends Model
      *
      * @return [type] [description]
      */
-    public static function createMany(array $notices)
+    public static function myCreateMany(array $notices)
     {
         $valids = [];
         foreach ($notices as $notice) {
@@ -79,7 +79,7 @@ class Notice extends Model
                 $valids[] = $notice;
             }
         }
-        return parent::createMany($valids);
+        return parent::myCreateMany($valids);
     }
     public function getActionAttribute()
     {
@@ -128,7 +128,7 @@ class Notice extends Model
     {
         return $query->orderBy('created_at', 'desc')->orderBy('id', 'desc');
     }
-    public function scopeAuth($query, $input = false)
+    public function myScopeAuth($query, $input = false)
     {
         return $query->where('user_id', \Auth::id())->whereIn('action_type_id', $this->actionsType); //trans('notices.actions')
     }

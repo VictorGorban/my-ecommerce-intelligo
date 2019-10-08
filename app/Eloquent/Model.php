@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Eloquent;
+namespace App\Eloquent;
 
 use App\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 
 class Model extends BaseModel
 {
-    public function newCollection(array $models = [])
+    public function myNewCollection(array $models = [])
     {
         return new Collection($models);
     }
@@ -19,7 +19,7 @@ class Model extends BaseModel
      *
      * @return Collection
      */
-    public static function createMany(array $elements)
+    public static function myCreateMany(array $elements)
     {
         if (!count($elements)) {
             return new Collection();
@@ -39,7 +39,7 @@ class Model extends BaseModel
      *
      * @return Model
      */
-    public static function createModel(array $attributes)
+    public static function myCreateModel(array $attributes)
     {
         return new static($attributes);
     }
@@ -47,11 +47,11 @@ class Model extends BaseModel
     /**
      * Create a new basic model object and return the instance.
      *
-     * @param array $attributes
+     * @param array $elements
      *
-     * @return Model
+     * @return array
      */
-    public static function createModels(array $elements)
+    public static function myCreateModels(array $elements)
     {
         $models = [];
         foreach ($elements as $attributes) {
@@ -61,12 +61,12 @@ class Model extends BaseModel
         return $models;
     }
 
-    public function scopeOfUser($query, $type)
+    public function myScopeOfUser($query, $type)
     {
         return $query->whereUserId($type);
     }
 
-    public function scopeAuth($query)
+    public function myScopeAuth($query)
     {
         return $query->whereUserId(\Auth::user()->id);
     }

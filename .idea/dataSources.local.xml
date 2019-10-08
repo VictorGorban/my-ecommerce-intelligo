@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="ecommerce_intelligo@localhost" uuid="4be8ab5f-ff19-4482-aa41-962881cdee53">
-      <database-info product="MariaDB" version="10.4.6-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.4.1" dbms="MARIADB" exact-version="10.4.6" exact-driver-version="2.4">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+    <data-source name="ecommerce_intelligo@localhost" uuid="4f74d4e2-404e-4add-b763-f4a2580cb2c7">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <secret-storage>master_key</secret-storage>
       <user-name>admin</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="schema">
-            <name qname="@" />
-            <name qname="ecommerce_intelligo" />
-          </node>
-        </introspection-scope>
-      </schema-mapping>
+      <schema-mapping />
     </data-source>
   </component>
 </project>

@@ -22,7 +22,7 @@ class CreateActionTypesTable extends Migration
             $table->string('action');
         });
 
-        ActionType::createMany(trans('globals.action_types'));
+        ActionType::myCreateMany(trans('globals.action_types'));
     }
 
     /**
