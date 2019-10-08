@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Eloquent\Model;
-use App\User;
+use App\User as User;
 
 class Person extends Model
 {
@@ -37,23 +37,17 @@ class Person extends Model
     public static function create(array $attr = [])
     {
         if (!isset($attr['user_id']) && isset($attr['user'])) {
-            $attr['user']['role'] = @$attr['user']['role'] ?: 'person';
+            $attr['user']['role'] = $attr['user']['role'] ?? 'person';
             $user = User::create($attr['user']);
-            unset($attr['user']);
             $attr['user_id'] = $user->id;
+            unset($attr['user']);
         }
         return parent::create($attr);
     }
 
-    public static function createSimple(array $attr = [])
-    {
-        return parent::create($attr);
-    }
-
-
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
     public function relationsToArray()
@@ -78,6 +72,6 @@ class Person extends Model
 
     public function setUpdatedAtAttribute($value)
     {
-        $this->belongsTo('App\User')->updated_at = $value;
+        $this->belongsTo(User::class)->updated_at = $value;
     }
 }
